@@ -2,7 +2,7 @@ def gv_script
 pipeline {
     agent any
     environment {
-         GITHUB_URL = "https://github.com/prabhat-roy/java-deployment-eks-using-jenkins-terraform.git"
+         GITHUB_URL = "https://github.com/prabhat-roy/java_maven_app_deployment_EKS_AWS_using_jenkins_terraform.git"
          BRANCH = "main"
          IMAGE_NAME = "java-maven-image"         
          ACC_ID = "873330726955"
@@ -109,7 +109,7 @@ pipeline {
         stage("Kubernetes deployment using Helm") {
             steps {
                 script {
-                    gv_script.kubeconfig()
+                    gv_script.deploy()
                 }
             }
         }

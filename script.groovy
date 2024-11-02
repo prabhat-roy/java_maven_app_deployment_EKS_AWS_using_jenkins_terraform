@@ -1,6 +1,3 @@
-def cleanup() {
-        cleanWs()
-}
 def checkout() {
         git branch: "${BRANCH}", credentialsId: 'github', url: "$GITHUB_URL"
 }
@@ -67,20 +64,13 @@ def ecr() {
         '''
 }
 
-def kubeconfig() {
+def deploy() {
         sh '''  helm upgrade first-release --install java-maven --set image.tag=$BUILD_NUMBER             
                 kubectl get nodes
                 kubectl get pods -A
                 kubectl get ns
                 kubectl get svc -A
         '''
-}
-
-def kubernetes() {
-        sh "helm ls"
-        sh "helm upgrade first-helm --install java-maven --set image.tag=$BUILD_NUMBER"
-        sh "kubectl get svc"
-        sh "kubectl get pods"
 }
 
 def removedocker() {
