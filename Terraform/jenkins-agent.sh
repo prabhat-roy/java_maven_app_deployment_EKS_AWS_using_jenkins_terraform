@@ -6,7 +6,6 @@ sudo apt-get install wget apt-transport-https gnupg lsb-release -y
 sudo curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sudo sh -s -- -b /usr/local/bin
 sudo curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sudo sh -s -- -b /usr/local/bin
 sudo curl -fsSL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh -o install-scout.sh
-sudo apt-get -y install ansible
 sudo apt-get install openjdk-21-jdk -y
 sudo apt-get install docker.io -y
 sudo chmod 777 /var/run/docker.sock
@@ -36,21 +35,7 @@ sudo rm -rf linux-amd64
 helm version
 sudo wget https://github.com/aquasecurity/trivy/releases/download/v0.55.0/trivy_0.55.0_Linux-64bit.deb
 sudo dpkg -i trivy_0.55.0_Linux-64bit.deb
-sudo wget https://github.com/jeremylong/DependencyCheck/releases/download/v11.1.0/dependency-check-11.1.0-release.zip
-sudo unzip dependency-check-11.1.0-release.zip
-sudo rm -rf dependency-check-11.1.0-release.zip
 sudo wget https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz
 sudo tar -xvzf apache-maven-3.9.9-bin.tar.gz
 sudo rm -rf apache-maven-3.9.9-bin.tar.gz
 export PATH=$PATH:/opt/apache-maven-3.9.9/bin
-sudo wget https://services.gradle.org/distributions/gradle-8.10.1-all.zip
-sudo unzip gradle-8.10.1-all.zip
-export PATH=$PATH:/opt/gradle-8.10.1/bin
-sudo rm -rf unzip gradle-8.10.1-all.zip
-sudo wget https://dlcdn.apache.org//ant/binaries/apache-ant-1.10.15-bin.zip
-sudo unzip apache-ant-1.10.15-bin.zip
-sudo rm -rf apache-ant-1.10.15-bin.zip
-cat <<EOF | sudo tee /etc/profile.d/ant.sh
-ANT_HOME=/opt/apache-ant-1.10.15
-PATH=$ANT_HOME/bin:$PATH
-EOF
